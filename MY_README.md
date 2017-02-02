@@ -89,6 +89,38 @@ React Component Types
 1.  Functional component - a function that returns JSX
 2.  Class component - a component that contains internal recordkeeping
 
+For class components, the component needs to be aware of itself and changes over time.  It needs to know its state and be used by other components.
+
+Use ES6 class (JavaScript object with properties and methods):
+
+    ````
+        class SearchBar extends React.Component {
+            render() {
+                NOTE: render() method required for 
+            }
+        }
+
+When create a class component, you must provide a render() method and return JSX.  Otherwise, an error will result.  Why?
+
+Rule of Thumb:
+Start with a functional component and refactor to class-based component if needed.
+
+###Handling User Events###
+
+Two Steps
+
+1.  Declare Event Handler
+
+        Event handler is a function that runs whenever the event occurs
+
+        Ex) onSubmit(), onChange()
+
+
+2.  Pass the event handler to the element that we want to monitor for events
+
+
+Ex) For the Search Bar, we want to know whenever the text has changed.
+
 
 
 
