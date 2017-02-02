@@ -2,10 +2,14 @@
 import React from 'react';
 
 // functionality to render components to the DOM
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
-// YouTube API Key:
-AIzaSyCzlbS_5vStroDmcda8Rhk9Ok0WRCKi8nQ
+// for files we create, we must provide a relative file path reference
+// ./ => current directory of index.js file
+import SearchBar from './components/search_bar';
+
+// YouTube API Key
+const API_KEY = 'AIzaSyCzlbS_5vStroDmcda8Rhk9Ok0WRCKi8nQ';
 
 // 1. Create a new component.  
 // This component should produce some HTML.
@@ -39,15 +43,20 @@ const App = () => {
 		a React component type (a class or a function)
 
 	*/
-	return <div>Hello, World!</div>;
+	return (
+		<div>
+			Hello, World!
+			<SearchBar />
+		</div>
+	);
 }
 
 
 // 2. Take this component's generated HTML and put it
 // on the page (in the DOM).
 
-// Pass an instance of App  ito ReactDOM.render()
-// querySelector() returns the first matching element node
+// Pass an instance of App into ReactDOM.render()
+// querySelector() returns the first matching element node in the DOM
 ReactDOM.render(<App />, document.querySelector('.container'));
 
 

@@ -59,12 +59,40 @@ Always make one component per code
 
 ###YouTube API Key###
 Two Steps
+
 1.  Get a YouTube API key
+
         console.developers.google.com
 
-        
+        key = AIzaSyCzlbS_5vStroDmcda8Rhk9Ok0WRCKi8nQ
 
 
-2.  Install a small package for searching
+2.  Install a small node package for searching the YouTube API
+
+        $ npm install --save youtube-api-search
+
+        --save => saves the package in our package.json file
+
+###Export Statements###
+
+Main Topics
+1.  Exporting modules
+2.  Classes
+3.  State
+
+Search Bar => create input form for user to type a search request
+
+###Class-Based Components###
+Sec. 1, Lec. 15
+
+React Component Types
+1.  Functional component - a function that returns JSX
+2.  Class component - a component that contains internal recordkeeping
+
+
+
+
+
+
 
 
