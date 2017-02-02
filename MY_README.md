@@ -47,10 +47,24 @@ To create an instance of the App class to render to the DOM:
     ReactDOM.render(<App></App>)   =>   ReactDOM.render(<App />)    
 ````
 
-###Target Elements
+###Target Elements###
 Take the component and place inside a target element;
 
 ````
     ReactDOM.render(<ComponentName />, targetElement)
 ````
+
+###Making Components###
+Always make one component per code
+
+###YouTube API Key###
+Two Steps
+1.  Get a YouTube API key
+        console.developers.google.com
+
+        
+
+
+2.  Install a small package for searching
+
 

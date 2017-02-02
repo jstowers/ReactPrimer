@@ -4,6 +4,8 @@ import React from 'react';
 // functionality to render components to the DOM
 import ReactDOM from 'react-dom'
 
+// YouTube API Key:
+AIzaSyCzlbS_5vStroDmcda8Rhk9Ok0WRCKi8nQ
 
 // 1. Create a new component.  
 // This component should produce some HTML.
