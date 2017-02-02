@@ -5,12 +5,18 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 
 
-// Create a new component.  
+// 1. Create a new component.  
 // This component should produce some HTML.
 
 // const => ES6 syntax that declares a constant;
 // a constant will never change or reassign App down the line.
-const App = function() {
+
+// Using ES6 syntax for arrow function
+// The value of 'this' is different inside an arrow function
+// ** Arrow functions do not have their own 'this' value.
+// The value of 'this' is always inherited from the enclosing scope.
+
+const App = () => {
 	// JSX => dialect of JavaScript that allows us to 
 	// write what looks like HTML, but really is just
 	// JavaScript behind the scenes (thanks to Webpack and Babel)
@@ -31,14 +37,15 @@ const App = function() {
 		a React component type (a class or a function)
 
 	*/
-	return <div>Hi!</div>;
+	return <div>Hello, World!</div>;
 }
 
 
-// Take this component's generated HTML and put it
+// 2. Take this component's generated HTML and put it
 // on the page (in the DOM).
 
 // Pass an instance of App  ito ReactDOM.render()
+// querySelector() returns the first matching element node
 ReactDOM.render(<App />, document.querySelector('.container'));
 
 
