@@ -254,7 +254,46 @@ To access this prop, you can type either of the following:
 
 The ES6 syntax declares a constant video equal to props.video.
 
+###Friday, February 3, 2017###
 
+***Add Video_Detail Component***
+
+When designing a new component, you have to ask:
+
+        Do I expect this component to need to maintain any type of state?
+
+video_detail needs:
+
+    1.  video title
+    2.  video description
+
+these are properties passed down from the App component and don't require any change in state.
+
+<iframe> element:
+
+        Specifies an inline frame.  An inline frame is used to embed another document within the current HTML document.
+
+ES6 Template String Notation:
+
+        const vidUrl = "https://www.youtube.com/embed/" + vidId; 
+        
+        const vidUrl = `https://www.youtube.com/embed/${vidId}`;
+
+
+***Handling Null Props***
+React works very fast to render components, sometimes before the HTTP request has been returned.  In this case, the properties will be 'null'.  If React attempts to render a 'null' property, the error will returned 'undefined'.
+
+So we can add an 'if' statement at the start of a component, so the component will only run if necessary properties have been specified:
+
+    const VideoDetail = ({ video }) => {
+        if(!video){
+            return (
+                <div>Loading . . .</div>
+            );
+        }
+        
+        . . .
+    }
 
 
 
