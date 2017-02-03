@@ -199,6 +199,34 @@ Answer:     Downward Data Flow
 Want the most parent component to be responsible for fetching data.
 
 
+***Props***
+Sec. 2, Lec. 23
+Build VideoList Component
+
+No need for state:
+1.  Doesn't record any user interaction
+2.  Doesn't re-render itself
+
+VideoList needs access to the videos returned in the App component.  React makes it easy to pass data from the parent component (App) to the child component (VideoList).
+    
+    In the parent's render() method, pass the prop 'videos' to the child:
+
+        <VideoList videos = { this.state.videos } />
+
+    Any time App re-renders, VideoList will get the new list of videos as well.
+
+In VideoList (a functional component), the 'props' object will arrive as an argument to the function:
+
+        const VideoList = (props) => {
+            const videos = props.videos;
+        }
+
+NOTE: But in a class-based component, 'props' are available anywhere, for any method we define, by writing 'this.props'  So when changing a functional component to a class-based component, you must refactor props to this.props.
+
+
+***Building Lists with Map***
+
+
 
 
 
