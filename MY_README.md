@@ -76,6 +76,7 @@ Two Steps
 ###Export Statements###
 
 Main Topics
+
 1.  Exporting modules
 2.  Classes
 3.  State
@@ -120,6 +121,69 @@ Two Steps
 
 
 Ex) For the Search Bar, we want to know whenever the text has changed.
+
+
+###Introducing State###
+
+State - plain JavaScript object that records and react to user events.
+
+Each class-based component has its own 'state' **object**.  Functional components do not have state.
+
+When a component's state changes, the component immediately re-renders.  A state change also forces the component's children to re-render.
+
+Before we can use the state object within a component, we must initialize it in the class' constructor function:
+
+    ``` 
+        constructor(props) {
+            super(props)
+            this.state = {
+                term: '',
+            }
+        }
+
+All JavaScript classes contain a special function called 'constructor'.  This constructor function is the first and only function automatically called when a new instance of a class is created.
+
+Constructor function reserved for specific tasks:
+
+        Initialize variables
+        Initialize state
+
+***What does super(props) mean?***
+
+We defined a constructor() method for our SearchBar class.  But the Component also has its own constructor function.
+
+So, when we define a method (constructor) that is already defined on the parent class, we can call the method on the parent class (Component) by using super().
+
+We are simply calling the parent method using super();
+
+***Setting State***
+
+Use setState() to change the value of a property.
+
+Syntax:
+
+        setState(nextState, callback)
+
+Example: set state of the term property to the current value in the Search Bar
+
+        this.setState({term:event.target.value})
+
+When setState() called, the component automatically re-renders and pushes all the updated information from the render() method into the DOM.
+
+RULE OF THUMB:  when update a component in some fashion, think 'state'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

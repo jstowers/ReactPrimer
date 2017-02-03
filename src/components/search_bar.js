@@ -4,6 +4,19 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
 
+	constructor(props) {
+		super(props);
+
+		// whenever user inputs search field, the term is the
+		// property that equals the value of the search
+		this.state = {
+			term: ''
+		}
+	}
+
+
+
+
 	// Naming Convention for Methods:
 	// on = when the event happens
 	// Input = on what DOM element
@@ -23,7 +36,16 @@ class SearchBar extends Component {
 		// return <input onChange = { this.onInputChange } />;
 
 		// alternative return using ES6 arrow function:
-		return <input onChange = {event => console.log(event.target.value)} />
+		//return <input onChange = {event => console.log(event.target.value)} />
+	
+		return (
+			<div>	
+				<input onChange = {event => 
+					this.setState({term:event.target.value})} 
+				/>
+				Value of the Input: { this.state.term }
+			</div>		
+		);
 	}
 }
 
