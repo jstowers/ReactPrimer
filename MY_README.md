@@ -226,6 +226,13 @@ NOTE: But in a class-based component, 'props' are available anywhere, for any me
 
 ***Building Lists with Map***
 
+Was able to map a list with 'Video' for each item but not the YouTube data for each video.
+
+        Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of `VideoList`. See https://fb.me/react-warning-keys for more information.
+
+So if we define a unique key from the data, React can efficiently update the array elements when new data is obtained from an HTTP request:
+
+        return <VideoListItem key = {video.etag} video = { video } />
 
 
 
