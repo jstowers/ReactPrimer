@@ -36,14 +36,20 @@ class SearchBar extends Component {
 		// return <input onChange = { this.onInputChange } />;
 
 		// alternative return using ES6 arrow function:
-		//return <input onChange = {event => console.log(event.target.value)} />
+		// return <input onChange = {event => console.log(event.target.value)} />
+
+		// can't console.log in return statement, so use JSX:
+		// Value of the Input: { this.state.term }
 	
 		return (
 			<div>	
-				<input onChange = {event => 
-					this.setState({term:event.target.value})} 
+				<input 
+					value = {this.state.term}	
+
+					onChange = { event => 
+						this.setState({term:event.target.value})
+					} 
 				/>
-				Value of the Input: { this.state.term }
 			</div>		
 		);
 	}

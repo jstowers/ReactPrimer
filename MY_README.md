@@ -172,6 +172,8 @@ When setState() called, the component automatically re-renders and pushes all th
 
 RULE OF THUMB:  when update a component in some fashion, think 'state'
 
+***Controlled Field***
+A form element, like an <input>, whose value is set by the state.
 
 
 
