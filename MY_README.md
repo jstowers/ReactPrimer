@@ -160,20 +160,43 @@ We are simply calling the parent method using super();
 
 Use setState() to change the value of a property.
 
+This is the primary method to trigger UI updates from event handlers and server request callbacks.
+
 Syntax:
 
         setState(nextState, callback)
 
-Example: set state of the term property to the current value in the Search Bar
+Example: set the state of the property 'term' to the current value in the Search Bar
 
         this.setState({term:event.target.value})
 
-When setState() called, the component automatically re-renders and pushes all the updated information from the render() method into the DOM.
+When setState() is called, the component automatically re-renders and pushes all the updated information from the render() method into the DOM.
 
 RULE OF THUMB:  when update a component in some fashion, think 'state'
 
 ***Controlled Field***
 A form element, like an <input>, whose value is set by the state.
+
+        <input 
+            value = {this.state.term}   
+            onChange = { event => 
+                this.setState({term:event.target.value})} 
+        />
+
+When we tell <input> that its value is provided by this.state.term, <input> becomes a controlled component (controlled form element).
+
+When the onChange method is called, the value of the <input> has not changed.
+
+When a user types in the Search Bar, they only trigger an event; the input value doesn't change at that instant.
+
+Helpful for handling data flow . . . the value of the <input> is equal to the state.
+
+
+***YouTube Search Response***
+Question:   All of the components will need access to the data provided from YouTube after a user searches for videos.  So which component is best-suited for making the API call?
+
+Answer:     Downward Data Flow
+Want the most parent component to be responsible for fetching data.
 
 
 

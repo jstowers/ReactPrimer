@@ -1,62 +1,51 @@
-// core React library => create and manage React components
-import React from 'react';
+// Sec. 2, Lec. 22
+// Convert functional component to class-based component
 
-// functionality to render components to the DOM
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
 
-// for files we create, we must provide a relative file path reference
-// ./ => current directory of index.js file
 import SearchBar from './components/search_bar';
 
-// YouTube API Key
 const API_KEY = 'AIzaSyCzlbS_5vStroDmcda8Rhk9Ok0WRCKi8nQ';
 
-// 1. Create a new component.  
-// This component should produce some HTML.
+class App extends Component {
 
-// const => ES6 syntax that declares a constant;
-// a constant will never change or reassign App down the line.
+	constructor(props) {
+		super(props);
 
-// Using ES6 syntax for arrow function
-// The value of 'this' is different inside an arrow function
-// ** Arrow functions do not have their own 'this' value.
-// The value of 'this' is always inherited from the enclosing scope.
+		this.state = {
+			videos: [],
 
-const App = () => {
-	// JSX => dialect of JavaScript that allows us to 
-	// write what looks like HTML, but really is just
-	// JavaScript behind the scenes (thanks to Webpack and Babel)
-	
-	// JSX can't be interpreted by the browser.
-	// We use JSX because it becomes the HTML that is placed into the DOM.
-	// JSX helps our code look more legible
+		}
 
-	// JSX is syntactic sugar for calling React.createElement()
-	/*
-		React.createElement(
-			type,
-			[props],
-			[...children]
-		)
+		// to allow user to see videos when page first loads, move YTSearch() into contructor function
+		// remember, the constructor function is the first function called each time the class App is instantiated
+		
+		// in ES6, when a property (videos) and value (videos) are the same name:
+		//		this.setState({ videos:videos })
+		//		
+		// we can shorten the notation to:
+		//		this.setState({ videos })
+		
 
-		type = either a tag name string ('div', 'span'), or
-		a React component type (a class or a function)
+		YTSearch({key:API_KEY, term:'surfboards'}, videos => {
+			console.log('videos =', videos);
+			this.setState({ videos });
+		});
 
-	*/
-	return (
-		<div>
-			Hello, World!
-			<SearchBar />
-		</div>
-	);
+	}
+
+	render() {
+		return (
+			<div>
+				Hello, World!
+				<SearchBar />
+			</div>
+		);
+	}
 }
 
-
-// 2. Take this component's generated HTML and put it
-// on the page (in the DOM).
-
-// Pass an instance of App into ReactDOM.render()
-// querySelector() returns the first matching element node in the DOM
 ReactDOM.render(<App />, document.querySelector('.container'));
 
 

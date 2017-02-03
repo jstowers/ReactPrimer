@@ -14,9 +14,6 @@ class SearchBar extends Component {
 		}
 	}
 
-
-
-
 	// Naming Convention for Methods:
 	// on = when the event happens
 	// Input = on what DOM element
@@ -45,10 +42,8 @@ class SearchBar extends Component {
 			<div>	
 				<input 
 					value = {this.state.term}	
-
 					onChange = { event => 
-						this.setState({term:event.target.value})
-					} 
+						this.setState({term:event.target.value})} 
 				/>
 			</div>		
 		);
