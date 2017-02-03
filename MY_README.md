@@ -235,7 +235,24 @@ So if we define a unique key from the data, React can efficiently update the arr
         return <VideoListItem key = {video.etag} video = { video } />
 
 
+***Adding Video Details to List***
 
+video_list_item receives a video as a property from video_list.
+
+To access this prop, you can type either of the following:
+
+    Traditional declaration:
+        const VideoListItem = (props) => {
+            const video = props.video;
+            . . .
+        }
+
+    ES6 syntax:
+        const VideoListItem = ({video}) {
+            . . .
+        }
+
+The ES6 syntax declares a constant video equal to props.video.
 
 
 

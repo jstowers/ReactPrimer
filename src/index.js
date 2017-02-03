@@ -30,7 +30,7 @@ class App extends Component {
 		//		this.setState({ videos })
 		
 
-		YTSearch({key:API_KEY, term:'surfboards'}, videos => {
+		YTSearch({key:API_KEY, term:'tropical butterflies'}, videos => {
 			console.log('videos =', videos);
 			this.setState({ videos });
 		});
