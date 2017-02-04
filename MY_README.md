@@ -333,8 +333,17 @@ VideoList then passes down the callback function to VideoListItem:
 Inside VideoListItem, need to create an event handler for when the user clicks on a list item '<li>'
 
 
+***Throttling the Search Term Input***
+We can search for new content in search box, but the search is laggy and the playlist changes occur too often.  So we can throttle back how often the playlist updates.
+
+We can throttle the search bar change using debounce from the lodash library:
+
+        $ npm install --save lodash
 
 
+
+?? QUESTION ??
+When I change the search term, the video playing changes as well.  How do I modify the search without changing the video . . . add a Submit button that will only change the playing video when clicked?
 
 
 

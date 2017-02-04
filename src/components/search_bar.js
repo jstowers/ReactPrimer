@@ -1,5 +1,4 @@
-
-// clean up reference with ES6
+// Use ES6 to clean up class extension to Component:
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
@@ -26,6 +25,15 @@ class SearchBar extends Component {
 	}
 	*/
 
+	onInputChange(term) {
+
+		this.setState({ term });
+		this.props.onSearchTermChange(term);
+
+	}
+
+
+
 	render() {
 		// the HTML input element emits a 'change' event
 		// JSX requires us to wrap curly braces around JavaScript variables
@@ -39,11 +47,11 @@ class SearchBar extends Component {
 		// Value of the Input: { this.state.term }
 	
 		return (
-			<div>	
+			<div className = "search-bar">	
 				<input 
 					value = {this.state.term}	
 					onChange = { event => 
-						this.setState({term:event.target.value})} 
+						this.onInputChange(event.target.value)} 
 				/>
 			</div>		
 		);
