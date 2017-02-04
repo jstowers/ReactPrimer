@@ -18,7 +18,7 @@ class App extends Component {
 
 		this.state = {
 			videos: [],
-
+			selectedVideo: null
 		}
 
 		// to allow user to see videos when page first loads, move YTSearch() into contructor function
@@ -26,14 +26,14 @@ class App extends Component {
 		
 		// in ES6, when a property (videos) and value (videos) are the same name:
 		//		this.setState({ videos:videos })
-		//		
 		// we can shorten the notation to:
 		//		this.setState({ videos })
 		
-
 		YTSearch({key:API_KEY, term:'tropical butterflies'}, videos => {
-			console.log('videos =', videos);
-			this.setState({ videos });
+			this.setState({ 
+				videos: videos,
+				selectedVideo: videos[0] 
+			});
 		});
 
 	}
@@ -43,8 +43,10 @@ class App extends Component {
 			<div>
 				Hello, World!
 				<SearchBar />
-				<VideoDetail video = {this.state.videos[0]} />
-				<VideoList videos = {this.state.videos} />
+				<VideoDetail video = {this.state.selectedVideo} />
+				<VideoList 
+					onVideoSelect = {selectedVideo => this.setState({selectedVideo})}
+					videos = {this.state.videos} />
 			</div>
 		);
 	}

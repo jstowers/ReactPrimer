@@ -269,7 +269,7 @@ video_detail needs:
 
 these are properties passed down from the App component and don't require any change in state.
 
-<iframe> element:
+'<iframe>' element:
 
         Specifies an inline frame.  An inline frame is used to embed another document within the current HTML document.
 
@@ -291,13 +291,46 @@ So we can add an 'if' statement at the start of a component, so the component wi
                 <div>Loading . . .</div>
             );
         }
-        
+
         . . .
     }
 
 
+### Saturday, February 4, 2017 ###
 
+***Video Selection***
+Want to be able to select a video in the video detail box and then have that video play in the player.
 
+Steps:
+
+1.  Define a selectedVideo property (a video object) in this.state for the App component.
+
+2.  The selectedVideo will always be passed into the VideoDetail component to play.
+
+3.  To update the selected video, we will pass a callback from App into VideoList, and then from VideoList into VideoListItem.
+
+4.  Whenever VideoListItem is clicked, it will run the callback with the video that belongs to it.  
+
+Process:
+
+onVideoSelect() is a callback function that updates App's state with a new selected video.  The callback function is property passed down to component VideoList:
+
+    <VideoList 
+        onVideoSelect = {selectedVideo => this.setState({selectedVideo})}
+        videos = {this.state.videos} />
+
+VideoList then passes down the callback function to VideoListItem:
+
+    const videoItems = props.videos.map(video => {
+        return (
+            <VideoListItem
+                onVideoSelect = { props.onVideoSelect }
+                key = {video.etag} 
+                video = { video } />
+        );
+    });        
+
+Inside VideoListItem, need to create an event handler for when the user clicks on a list item '<li>'
 
 
 
