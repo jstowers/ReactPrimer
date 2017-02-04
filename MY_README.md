@@ -345,6 +345,34 @@ We can throttle the search bar change using debounce from the lodash library:
 ?? QUESTION ??
 When I change the search term, the video playing changes as well.  How do I modify the search without changing the video . . . add a Submit button that will only change the playing video when clicked?
 
+***Recap***
+
+
+1. Class-based vs. Functional Components
+
+        Class => use if the component needs state
+
+2.  State
+        Whenever change state, component instantly re-renders (along with any children)
+
+3.  Import and Export Statements
+
+        Our files => relative file reference
+
+        Library => just name
+
+4.  Callbacks
+    
+        Great for parent-child communication with minimal overhead, as long as you keep the callback within two component levels.  Any deeper and they become unwieldy.
+
+        In Redux-themed applications, use fewer callbacks
+
+5.  Component Level State
+    
+        Components contain their own state.
+
+        This will change in Redux.  More application level.
+
 
 
 
