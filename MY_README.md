@@ -269,7 +269,7 @@ video_detail needs:
 
 these are properties passed down from the App component and don't require any change in state.
 
-'<iframe>' element:
+<iframe> element:
 
         Specifies an inline frame.  An inline frame is used to embed another document within the current HTML document.
 
